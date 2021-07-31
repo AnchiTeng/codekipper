@@ -1,20 +1,37 @@
 {
-  "name": "electron-quick-start",
+  "name": "code-kipper",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "electron": "electron .",
+    "react": "cd app && npm start"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/Jigglypuff1/codekipper/",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "Code Kipper",
+    "code snippet",
+    "repository",
+    "snippet"
   ],
-  "author": "GitHub",
+  "contributors": [
+    {
+      "name": "Frank Stepanski",
+      "url": "https://github.com/frankstepanski"
+    },
+    {
+      "name": "Ethan Yeh",
+      "url": "https://github.com/ehwyeh"
+    },
+    {
+      "name": "Carlos Lovera",
+      "url": "https://github.com/calovera"
+    },
+    {
+      "name": "Ashley Pean",
+      "url": "https://github.com/ashleypean"
+    }
+  ],
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^13.1.7"
