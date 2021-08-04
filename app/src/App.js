@@ -1,5 +1,6 @@
 import "./App.css";
 import CreateCodeSnippet from "./components/CodeSnippetForm.js";
+import GoogleLogin from 'react-google-login';
 import Homepage from "./components/Homepage";
 import { Layout, Button, Input } from 'antd';
 import { PlusSquareOutlined } from '@ant-design/icons';
@@ -23,7 +24,13 @@ function App() {
         </Header>
         <Homepage className="site-layout-background" />
       </Layout>
-
+      <GoogleLogin
+          clientId="6961252266-vghv7d662oki19ad9ven0r5vfpav6kin.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={'single_host_origin'}
+        />
       {/* <CreateCodeSnippet /> */}
     </div>
   );
