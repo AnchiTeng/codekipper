@@ -10,7 +10,9 @@ const { Search } = Input;
 
 function App() {
   const onSearch = value => console.log(value);
-
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
   return (
     <div className="App">
       <Layout>
