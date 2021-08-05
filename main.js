@@ -8,6 +8,7 @@ const os = require('os');
 const isMac = process.platform === 'darwin';
 const appName = 'Code Kipper'
 
+
 const mb = menubar({
   tooltip: appName, 
   browserWindow: { height: 500, width: 400 }, 
@@ -75,4 +76,5 @@ mb.on('ready', () => {
 
 mb.on('after-create-window', () => {
   mb.window.loadURL('http://localhost:3000')
+  mb.window.webContents.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0";
 })
