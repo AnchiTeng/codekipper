@@ -1,19 +1,43 @@
 // Modules to control application life and create native browser window
 // const {app, BrowserWindow} = require('electron')
 // const path = require('path')
+const axios  = require('axios');
 const { menubar } = require('menubar');
-const { globalShortcut, Menu } = require('electron')
+const { globalShortcut, Menu, protocol, ipcMain } = require('electron')
 const os = require('os');
 
 const isMac = process.platform === 'darwin';
 const appName = 'Code Kipper'
 
 const mb = menubar({
+  webSecurity: false,
   tooltip: appName, 
   browserWindow: { height: 500, width: 400 }, 
   showOnAllWorkspaces: true,
   //icon
 });
+const { session } = require('electron')
+// Modify the user agent for all requests to the following urls.
+
+// ipcMain.handle('auth', async (event, ...args) => {
+//   console.log('main: auth', event, args)
+//   const result = await axios.post(
+//     'https://api.com/auth',
+//     {
+//       username: args[0].username,
+//       password: args[0].password,
+//       auth_type: args[1],
+//     },
+//   )
+//   console.log('main: auth result', result)
+//   console.log('main: auth result.data', result.data)
+//   return result.data
+// })
+
+// ipcMain.handle('request', async (_, axios_request) => {
+//   const result = await axios(axios_request)
+//   return { data: result.data, status: result.status }
+// })
 
 const buildMenu = () => {
   const template = [
@@ -38,6 +62,7 @@ const buildMenu = () => {
         { role: 'zoomIn' },
         { role: 'zoomOut' },
         { role: 'resetZoom' },
+        { role: 'toggleDevTools' }
       ],
     }
   ];
@@ -74,5 +99,18 @@ mb.on('ready', () => {
 });
 
 mb.on('after-create-window', () => {
-  mb.window.loadURL('http://localhost:3000')
+  mb.window.webContents.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0";
+  const filter = {urls: ['https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=YOUR_TOKEN_HERE', "https://apis.google.com/js/api.j"]};
+  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+    callback({
+      responseHeaders: {
+        ...details.responseHeaders,
+        'Content-Security-Policy': ['*']
+      }
+    })
+  })
+  
+  mb.window.loadURL('http://localhost:3000/loginpage')
+  
 })
+
