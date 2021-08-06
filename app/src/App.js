@@ -13,6 +13,7 @@ function App() {
   const [folderModalOpen, setFolderModalOpen] = useState(false);
   const [codeModalOpen, setCodeModalOpen] = useState(false);
   const [activeFolder, setActiveFolder] = useState(null);
+  const [languages, setLanguages] = useState(null);
   const [folders, setFolders] = useState([]);
   const [codeSnippets, setCodeSnippets] = useState([]);
   
