@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "electron": "electron .",
-    "react": "cd app && npm start"
+    "react": "cd app && npm start",
+    "server": "cd server && npm run server"
   },
   "repository": "https://github.com/Jigglypuff1/codekipper/",
   "keywords": [
@@ -34,11 +35,15 @@
   ],
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^13.1.7"
+    "electron": "^13.1.7",
+    "nodemon": "^1.18.4"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "menubar": "^9.0.5",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "apollo-boost": "^0.1.15",
+    "react-apollo": "^2.1.11",
+    "graphql": "^14.0.0"
   }
 }

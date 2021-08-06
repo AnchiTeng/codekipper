@@ -1,7 +1,7 @@
 // Modules to control application life and create native browser window
 // const {app, BrowserWindow} = require('electron')
 // const path = require('path')
-const axios  = require('axios');
+//const axios  = require('axios');
 const { menubar } = require('menubar');
 const { globalShortcut, Menu, protocol, ipcMain } = require('electron')
 const os = require('os');
