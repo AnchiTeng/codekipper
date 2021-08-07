@@ -4,17 +4,8 @@ import { PlusSquareOutlined, FolderAddOutlined } from "@ant-design/icons";
 import { Layout, Button, Input } from "antd";
 import TextField from '@material-ui/core/TextField';
 
-export default function FolderForm ({folderModalOpen, setFolderModalOpen, folders, setFolders, languages, setLanguages}) {
+export default function FolderForm ({folders, setFolders, languages, setLanguages}) {
 
-  // const handleFolderModalOpen = (i) => {
-  //   setFolderModalOpen(true);
-  //   i();
-  //   console.log(folderModalOpen)
-  // }
-  // const handleCodeModalClose = (e) => {
-  //   e.preventDefault();
-  //   setFolderModalOpen(false);
-  // }
 
   return (
     <ReactCircleModal

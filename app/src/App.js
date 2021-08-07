@@ -3,10 +3,7 @@ import "./App.css";
 import HomePage from "./components/Homepage";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
-import {
-  useQuery,
-  gql,
-} from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import {
   queryEverySnippets
 } from './graphql/queries';
@@ -29,7 +26,6 @@ function App() {
   return (
     
       <div className="App">
-        {/* <CreateCodeSnippet /> */}
         <BrowserRouter>
           <Switch>
             <Route path="/loginpage">
