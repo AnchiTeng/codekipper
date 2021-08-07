@@ -30,6 +30,7 @@ export default function FolderForm ({folders, setFolders, languages, setLanguage
             <TextField id="standard-basic" label="Language"/>
             
           </form>
+          <button onClick={onClick}>Create Folder</button>
           <button onClick={onClick}>Exit</button>
         </div>
       )}
