@@ -49,6 +49,6 @@
     "graphql": "^14.0.0",
     "menubar": "^9.0.5",
     "react-apollo": "^2.1.11",
-    "react-circle-modal": "0.0.2",
+    "react-circle-modal": "0.0.2"
   }
 }

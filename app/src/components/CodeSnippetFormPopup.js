@@ -27,8 +27,11 @@ export default function CodeSnippetForm ({codeSnippets, setCodeSnippets}) {
           <p>New Code Snippet</p>
           <form>
             <TextField id="standard-basic" label="Code Snippet Name"/>
+            <br></br>
             <TextField id="standard-basic" label="Code Snippet Content"/>
+            <br></br>
             <TextField id="standard-basic" label="Folder"/>
+            <br></br>
             <TextField id="standard-basic" label="Language"/>
             
           </form>
