@@ -38,7 +38,10 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
+    "axios": "^0.21.1",
+    "dialogs": "^2.0.1",
     "menubar": "^9.0.5",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "use-magic-link": "^1.1.1"
   }
 }

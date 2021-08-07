@@ -1,24 +1,76 @@
-import GoogleLogin from 'react-google-login';
-import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { Form, Input, Button, Checkbox } from 'antd';
 
 function LoginPage() {
   const history = useHistory()
-  const responseGoogle = (response) => {
-    console.log(response);
-  }
   function redirectToHomepage() {
     history.push('/homepage');
   }
+
   return (
-    <div className="Login">
-       <GoogleLogin
-        clientId="6961252266-vghv7d662oki19ad9ven0r5vfpav6kin.apps.googleusercontent.com"
-        buttonText="Login"
-        onSuccess={redirectToHomepage}
-        onFailure={responseGoogle}
-        cookiePolicy={'single_host_origin'}
-      />
-    </div>
+    <Form
+      name="basic"
+      labelCol={{
+        span: 8,
+      }}
+      wrapperCol={{
+        span: 16,
+      }}
+      initialValues={{
+        remember: true,
+      }}
+      style={{ width: "80%", margin: 'auto', marginTop:'20%'}}
+      onFinish={redirectToHomepage}
+      onFinishFailed={redirectToHomepage}
+    >
+      <Form.Item
+        label="Username"
+        name="username"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your username!',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Password"
+        name="password"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your password!',
+          },
+        ]}
+      >
+        <Input.Password />
+      </Form.Item>
+
+      <Form.Item
+        name="remember"
+        valuePropName="checked"
+        wrapperCol={{
+          offset: 8,
+          span: 16,
+        }}
+      >
+        <Checkbox>Remember me</Checkbox>
+      </Form.Item>
+
+      <Form.Item
+        wrapperCol={{
+          offset: 8,
+          span: 16,
+        }}
+      >
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form.Item>
+    </Form>
   );
 }
 
