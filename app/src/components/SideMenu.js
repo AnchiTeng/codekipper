@@ -1,6 +1,6 @@
 import { Menu, Layout, Breadcrumb } from "antd";
 import "antd/dist/antd.css";
-import { createFromIconfontCN } from "@ant-design/icons";
+import { createFromIconfontCN, Html5Outlined } from "@ant-design/icons";
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
@@ -40,17 +40,20 @@ function SideMenu({
         <Menu.Item key="3">Folder 3</Menu.Item>
         <Menu.Item key="4">Folder 4</Menu.Item>
       </SubMenu>
-      <SubMenu key="sub2" icon={<IconFont type="icon-python" />}>
+      <SubMenu key="sub2" icon={<Html5Outlined />}>
+        <Menu.Item key="1"> Folder 1 </Menu.Item>
+        <Menu.Item key="2">Folder 2</Menu.Item>
+        <Menu.Item key="3">Folder 3</Menu.Item>
+      </SubMenu>
+
+      <SubMenu key="sub3" icon={<IconFont type="icon-python" />}>
         <Menu.Item key="5"> Folder 1 </Menu.Item>
         <Menu.Item key="6">Folder 2</Menu.Item>
       </SubMenu>
-      <SubMenu key="sub3" icon={<IconFont type="icon-java" />}>
+      <SubMenu key="sub4" icon={<IconFont type="icon-java" />}>
         <Menu.Item key="7"> Folder 1 </Menu.Item>
         <Menu.Item key="8">Folder 2</Menu.Item>
         <Menu.Item key="9">Folder 3</Menu.Item>
-      </SubMenu>
-      <SubMenu key="sub4" icon={<IconFont type="icon-shoppingcart" />}>
-        <Menu.Item key="10"> Folder 1 </Menu.Item>
       </SubMenu>
     </Menu>
   );
