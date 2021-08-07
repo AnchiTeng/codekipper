@@ -39,6 +39,7 @@
     "nodemon": "^1.18.4"
   },
   "dependencies": {
+    "dialogs": "^2.0.1",
     "menubar": "^9.0.5"
   }
 }

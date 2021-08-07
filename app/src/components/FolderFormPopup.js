@@ -26,6 +26,7 @@ export default function FolderForm ({folders, setFolders, languages, setLanguage
           <h1>New Folder</h1>
           <form>
             <TextField id="standard-basic" label="Folder Name"/>
+            <br></br>
             <TextField id="standard-basic" label="Language"/>
             
           </form>
