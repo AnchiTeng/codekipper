@@ -16,12 +16,7 @@ function App() {
   }
   if (error) {
     return <div>Error</div>;
-  }
-  if (data) {
-    const snippets = data.everySnippets;
-    return <div>{JSON.stringify(snippets[0].code)}</div>;
-  }
-  
+  }  
   
   return (
     
@@ -35,7 +30,7 @@ function App() {
               <HomePage />
             </Route>
             <Route path="*">
-              <LoginPage />
+              <HomePage />
             </Route>
           </Switch>
         </BrowserRouter>
