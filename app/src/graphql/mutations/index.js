@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/client';
 
 const addSnippetsMutation = gql`
   mutation($code: String!, $name: String!, $user_id: ID, $folder_id: ID) {

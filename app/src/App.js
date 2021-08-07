@@ -3,21 +3,9 @@ import "./App.css";
 import HomePage from "./components/Homepage";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
-import { useQuery } from "@apollo/client";
-import {
-  queryEverySnippets
-} from './graphql/queries';
 
 
-function App() {
-  const { loading, error, data } = useQuery(queryEverySnippets);
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-  if (error) {
-    return <div>Error</div>;
-  }  
-  
+function App() {  
   return (
     
       <div className="App">
@@ -30,7 +18,7 @@ function App() {
               <HomePage />
             </Route>
             <Route path="*">
-              <HomePage />
+              <LoginPage />
             </Route>
           </Switch>
         </BrowserRouter>

@@ -1,6 +1,6 @@
 import React from "react";
 import { PlusSquareOutlined, FolderAddOutlined, CopyOutlined } from "@ant-design/icons";
-import { Layout, Button, Input } from "antd";
+import { Layout, Button, message } from "antd";
 import TextField from "@material-ui/core/TextField";
 import { Card } from "antd";
 // Import languages, folders, codeSnippets states
@@ -8,6 +8,7 @@ export default function FolderView() {
   const copySnippet = () => {
     const code = document.getElementById('snippet-1')
     navigator.clipboard.writeText(code.innerText)
+    message.success('Copied to Clipboard')
   }
 
   return (
@@ -18,6 +19,7 @@ export default function FolderView() {
           size="medium"
           onClick={copySnippet}
         />
+
       <Card title="Binary Search Tree Driver Code" bordered={false} style={{ width: '75vw', margin: 'auto' }}>
         <code id="snippet-1">let arr = [1, 3, 5, 7, 8, 9]; <br></br>
 let x = 5;<br></br>

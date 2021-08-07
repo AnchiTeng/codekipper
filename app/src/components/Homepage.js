@@ -3,6 +3,10 @@ import GoogleLogin from "react-google-login";
 import { Layout, Button, Input } from "antd";
 import { PlusSquareOutlined, FolderAddOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
+import { useQuery } from "@apollo/client";
+import {
+  queryEverySnippets
+} from '../graphql/queries';
 
 // Import Components
 import FolderForm from "./FolderFormPopup.js";
@@ -16,9 +20,35 @@ function HomePage() {
   // State
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFolder, setActiveFolder] = useState(null);
-  const [languages, setLanguages] = useState(null);
-  const [folders, setFolders] = useState([]);
-  const [codeSnippets, setCodeSnippets] = useState([]);
+  const [languages, setLanguages] = useState(['JavaScript', 'HTML/CSS', 'Python', 'C#', "Java" ]);
+  const [folders, setFolders] = useState(['Folder 1', 'Folder 2', 'Folder 3', 'Folder 4']);
+  const [codeSnippets, setCodeSnippets] = useState([{
+    id: 1,
+    code: `
+    <code id="snippet-1">let arr = [1, 3, 5, 7, 8, 9]; <br></br>
+let x = 5;<br></br>
+   
+if (recursiveFunction(arr, x, 0, arr.length-1)) <br></br>
+    document.write("Element found!");<br></br>
+else document.write("Element not found!");<br></br>
+   
+x = 6;<br></br>
+   
+if (recursiveFunction(arr, x, 0, arr.length-1))<br></br>
+    document.write("Element found!");<br></br>
+else document.write("Element not found!");</code><br></br>`, 
+    folder: "folder-1",
+    language: "javascript",
+  }]);
+
+  const { loading, error, data } = useQuery(queryEverySnippets);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return <div>Error</div>;
+  }  
+
 
   const onSearch = (value) => console.log(value);
   const handleSearch = (e) => {
@@ -48,6 +78,8 @@ function HomePage() {
             <CodeSnippetForm
               codeSnippets={codeSnippets}
               setCodeSnippets={setCodeSnippets}
+              folders={folders}
+              languages={languages}
             />
           </div>
 
