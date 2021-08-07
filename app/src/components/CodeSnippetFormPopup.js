@@ -35,6 +35,7 @@ export default function CodeSnippetForm ({codeSnippets, setCodeSnippets}) {
             <TextField id="standard-basic" label="Language"/>
             
           </form>
+          <button onClick={onClick}>Create Code Snippet</button>
           <button onClick={onClick}>Exit</button>
         </div>
       )}
