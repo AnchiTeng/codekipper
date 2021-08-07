@@ -1,14 +1,13 @@
+import React, { useState } from "react";
 import "./App.css";
-import CreateCodeSnippet from "./components/CodeSnippetForm.js";
+
 import HomePage from "./components/Homepage";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 
-
-
-
 function App() {
-  
+
+
   return (
     <div className="App">
       {/* <CreateCodeSnippet /> */}
@@ -18,7 +17,7 @@ function App() {
             <LoginPage />
           </Route>
           <Route path="/homepage">
-            <HomePage/>
+            <HomePage />
           </Route>
         </Switch>
       </BrowserRouter>

@@ -1,13 +1,14 @@
 // Modules to control application life and create native browser window
 // const {app, BrowserWindow} = require('electron')
 // const path = require('path')
-const axios  = require('axios');
+//const axios  = require('axios');
 const { menubar } = require('menubar');
 const { globalShortcut, Menu, protocol, ipcMain } = require('electron')
 const os = require('os');
 
 const isMac = process.platform === 'darwin';
 const appName = 'Code Kipper'
+
 
 const mb = menubar({
   webSecurity: false,
@@ -99,18 +100,6 @@ mb.on('ready', () => {
 });
 
 mb.on('after-create-window', () => {
+  mb.window.loadURL('http://localhost:3000')
   mb.window.webContents.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0";
-  const filter = {urls: ['https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=YOUR_TOKEN_HERE', "https://apis.google.com/js/api.j"]};
-  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-    callback({
-      responseHeaders: {
-        ...details.responseHeaders,
-        'Content-Security-Policy': ['*']
-      }
-    })
-  })
-  
-  mb.window.loadURL('http://localhost:3000/loginpage')
-  
 })
-
