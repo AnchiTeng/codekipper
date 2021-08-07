@@ -1,6 +1,7 @@
 import { Menu, Layout, Breadcrumb } from "antd";
 import "antd/dist/antd.css";
 import { createFromIconfontCN, Html5Outlined } from "@ant-design/icons";
+import { Icon } from '@iconify/react';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
@@ -26,6 +27,7 @@ function SideMenu({
   setCodeSnippets,
 }) {
   return (
+      
     <Menu
       onClick={handleClick}
       mode="inline"
@@ -51,6 +53,11 @@ function SideMenu({
         <Menu.Item key="6">Folder 2</Menu.Item>
       </SubMenu>
       <SubMenu key="sub4" icon={<IconFont type="icon-java" />}>
+        <Menu.Item key="7"> Folder 1 </Menu.Item>
+        <Menu.Item key="8">Folder 2</Menu.Item>
+        <Menu.Item key="9">Folder 3</Menu.Item>
+      </SubMenu>
+      <SubMenu key="sub5" icon={<Icon icon="simple-icons:csharp" />}>
         <Menu.Item key="7"> Folder 1 </Menu.Item>
         <Menu.Item key="8">Folder 2</Menu.Item>
         <Menu.Item key="9">Folder 3</Menu.Item>
