@@ -1,7 +1,6 @@
 // Modules to control application life and create native browser window
-// const {app, BrowserWindow} = require('electron')
-// const path = require('path')
-//const axios  = require('axios');
+const {app, BrowserWindow} = require('electron')
+const path = require('path')
 const { menubar } = require('menubar');
 const { globalShortcut, Menu, protocol, ipcMain } = require('electron')
 const os = require('os');
@@ -17,28 +16,6 @@ const mb = menubar({
   showOnAllWorkspaces: true,
   //icon
 });
-const { session } = require('electron')
-// Modify the user agent for all requests to the following urls.
-
-// ipcMain.handle('auth', async (event, ...args) => {
-//   console.log('main: auth', event, args)
-//   const result = await axios.post(
-//     'https://api.com/auth',
-//     {
-//       username: args[0].username,
-//       password: args[0].password,
-//       auth_type: args[1],
-//     },
-//   )
-//   console.log('main: auth result', result)
-//   console.log('main: auth result.data', result.data)
-//   return result.data
-// })
-
-// ipcMain.handle('request', async (_, axios_request) => {
-//   const result = await axios(axios_request)
-//   return { data: result.data, status: result.status }
-// })
 
 const buildMenu = () => {
   const template = [
@@ -60,6 +37,7 @@ const buildMenu = () => {
       submenu: [
         { role: 'copy' }, 
         { role: 'paste' },
+        { role: 'reload' },
         { role: 'zoomIn' },
         { role: 'zoomOut' },
         { role: 'resetZoom' },
@@ -82,24 +60,10 @@ mb.on('ready', () => {
   });
 
 
-  /* 
-    Code that executes when the browswer window is shown 
-  */
-  mb.on('after-show', () => {
-  
-  });
-
-  /* 
-    Code executes when browser window is hidden 
-  */
-  mb.on('after-hide', () => {
-  
-  });
-
   console.log('app is ready');
 });
 
 mb.on('after-create-window', () => {
-  mb.window.loadURL('http://localhost:3000')
   mb.window.webContents.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0";
+  mb.window.loadURL('http://localhost:3000/')
 })
